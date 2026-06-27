@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "TourTrack (main2.dart)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main2.dart"
+    },
+    {
+      "name": "TourTrack (main.dart)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart"
+    }
+  ]
+}
