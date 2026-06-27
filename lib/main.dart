@@ -1,25 +1,56 @@
 import 'package:flutter/material.dart';
-import 'constants/app_themes.dart';
-import 'constants/app_routes.dart';
-import 'routes/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'core/theme/app_theme.dart';
+import 'core/routes/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    const ProviderScope(
+      child: TourTrackApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TourTrackApp extends ConsumerWidget {
+  const TourTrackApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hackathon App',
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
+      title: 'TourTrack',
       debugShowCheckedModeBanner: false,
-      theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: AppRoutes.splash,
-      onGenerateRoute: AppRouter.generateRoute,
+      routerConfig: AppRouter.router,
     );
   }
 }
+
+
+
+
+
+/*
+void main() {
+  
+}
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    
+      
+      debugShowCheckedModeBanner: false,
+      
+      
+      themeMode: ThemeMode.system,
+      
+      
+    );
+  }
+}
+*/
