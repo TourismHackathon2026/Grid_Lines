@@ -41,7 +41,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       status: AuthStatus.authenticated,
       user: User(
         id: '1',
-        name: 'John Doe',
+        name: 'Rajesh Hamal',
         email: email,
         role: 'tourist',
         createdAt: DateTime.now(),

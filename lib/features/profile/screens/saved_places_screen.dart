@@ -11,19 +11,25 @@ class SavedPlacesScreen extends StatelessWidget {
       title: 'Saved Places',
       icon: Icons.favorite_border,
       color: AppColors.error,
-      description: 'Your bookmarked destinations.',
+      description: 'Your bookmarked destinations in Nepal.',
       items: const [
         FeatureItem(
           icon: Icons.place,
-          title: 'Taj Mahal',
-          subtitle: 'Agra, Uttar Pradesh',
+          title: 'Pashupatinath Temple',
+          subtitle: 'Kathmandu, Nepal',
           color: AppColors.accent,
         ),
         FeatureItem(
           icon: Icons.place,
-          title: 'Jaipur Palace',
-          subtitle: 'Jaipur, Rajasthan',
+          title: 'Phewa Lake',
+          subtitle: 'Pokhara, Nepal',
           color: AppColors.chartOrange,
+        ),
+        FeatureItem(
+          icon: Icons.place,
+          title: 'Lumbini',
+          subtitle: 'Rupandehi, Nepal',
+          color: AppColors.success,
         ),
       ],
     );

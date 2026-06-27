@@ -35,8 +35,9 @@ class PlacesTab extends ConsumerWidget {
                     itemBuilder: (ctx, i) {
                       final p = places[i % places.length];
                       return PlaceCard(
-                        name: '$p - ${i + 1}',
+                        name: p.name,
                         location: p.location,
+                        imageUrl: p.imageUrl,
                         rating: p.rating,
                         reviewCount: p.reviewCount,
                         categories: p.categories,

@@ -45,12 +45,19 @@ class PlaceCard extends StatelessWidget {
                     color: AppColors.primary.withAlpha(25),
                   ),
                   child: imageUrl != null
-                      ? Image.network(
-                          imageUrl!,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) =>
-                              _buildPlaceholderImage(),
-                        )
+                      ? (imageUrl!.startsWith('http')
+                          ? Image.network(
+                              imageUrl!,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) =>
+                                  _buildPlaceholderImage(),
+                            )
+                          : Image.asset(
+                              imageUrl!,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) =>
+                                  _buildPlaceholderImage(),
+                            ))
                       : _buildPlaceholderImage(),
                 ),
                 Positioned(

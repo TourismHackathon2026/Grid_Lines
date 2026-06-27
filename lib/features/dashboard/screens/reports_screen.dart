@@ -11,24 +11,24 @@ class ReportsScreen extends StatelessWidget {
       title: 'Reports',
       icon: Icons.show_chart,
       color: AppColors.chartPurple,
-      description: 'Analytics and insights about your travel activity.',
+      description: 'Analytics for your Nepal travel activity.',
       items: const [
         FeatureItem(
           icon: Icons.trending_up,
           title: 'Weekly Summary',
-          subtitle: '12.4 km traveled this week',
+          subtitle: '34.5 km across Kathmandu Valley',
           color: AppColors.success,
         ),
         FeatureItem(
           icon: Icons.calendar_month,
           title: 'Monthly Report',
-          subtitle: '48 places visited this month',
+          subtitle: '12 Nepali destinations visited',
           color: AppColors.accent,
         ),
         FeatureItem(
           icon: Icons.emoji_events,
           title: 'Achievements',
-          subtitle: '5 badges earned',
+          subtitle: '5 badges earned exploring Nepal',
           color: AppColors.chartOrange,
         ),
       ],

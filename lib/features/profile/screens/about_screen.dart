@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
       title: 'About',
       icon: Icons.info_outlined,
       color: AppColors.info,
-      description: 'TourTrack v1.0.0\nTourism Tracking Application',
+      description: 'TourTrack v1.0.0\nNepal Tourism Tracking App',
       items: const [
         FeatureItem(
           icon: Icons.code,

@@ -51,13 +51,20 @@ class DashboardPopular extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 110,
-                          color: AppColors.primary.withAlpha(25),
-                          child: Center(
-                            child: Icon(Icons.place, size: 40,
-                                color: AppColors.primary.withAlpha(150)),
-                          ),
+                          width: double.infinity,
+                          child: place.imageUrl != null
+                              ? (place.imageUrl!.startsWith('http')
+                                  ? Image.network(place.imageUrl!,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, __, ___) =>
+                                          _buildPlaceholder())
+                                  : Image.asset(place.imageUrl!,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, __, ___) =>
+                                          _buildPlaceholder()))
+                              : _buildPlaceholder(),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(AppSpacing.sm),
@@ -110,6 +117,16 @@ class DashboardPopular extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildPlaceholder() {
+    return Container(
+      color: AppColors.primary.withAlpha(25),
+      child: Center(
+        child: Icon(Icons.place, size: 40,
+            color: AppColors.primary.withAlpha(150)),
+      ),
     );
   }
 }
