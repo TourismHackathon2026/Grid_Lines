@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// 🔗 LINKING ALL YOUR REAL UI FILES HERE:
 import 'dashboard_tab.dart';
 import '../../tracking/screens/tracking_tab.dart';
-
-// Minimalistic fallback tab modules to keep imports clean
-class PlacesTab extends StatelessWidget {
-  const PlacesTab({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) => const Center(
-        child: Text("EXPLORE REGIONS", style: TextStyle(color: Colors.white38, fontSize: 12, letterSpacing: 2, fontWeight: FontWeight.bold)),
-      );
-}
-
-class ProfileTab extends StatelessWidget {
-  const ProfileTab({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) => const Center(
-        child: Text("TREKKER PROFILE", style: TextStyle(color: Colors.white38, fontSize: 12, letterSpacing: 2, fontWeight: FontWeight.bold)),
-      );
-}
+import '../../profile/screens/profile_tab.dart'; 
+import '../../explore/screens/explore_tab.dart'; // ✅ Added the real Explore import!
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,21 +19,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // 🚀 Now this points to your REAL ExploreTab file instead of the mockup!
     final List<Widget> liveTabs = [
       const DashboardTab(),
-      const PlacesTab(),
+      const ExploreTab(), // ✅ Changed from PlacesTab() to ExploreTab()
       const TrackingTab(),
-      const ProfileTab(),
+      const ProfileTab(), 
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF090D16), // Premium Minimal Dark Obsidian
+      backgroundColor: const Color(0xFF0A0F1C), 
       appBar: AppBar(
         title: const Text(
           'TOURTRACK', 
-          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white, fontSize: 15, letterSpacing: 1.5),
+          style: TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 16, letterSpacing: 2.0),
         ),
-        backgroundColor: const Color(0xFF090D16),
+        backgroundColor: const Color(0xFF0A0F1C),
         elevation: 0,
         centerTitle: false,
         actions: [
@@ -71,10 +59,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
         child: NavigationBar(
           selectedIndex: _currentIndex,
-          backgroundColor: const Color(0xFF090D16),
+          backgroundColor: const Color(0xFF0A0F1C),
           elevation: 0,
           height: 65,
-          indicatorColor: Colors.white.withOpacity(0.05),
+          indicatorColor: const Color(0xFFFF5722).withOpacity(0.15), // Blaze Orange indicator
           labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
           onDestinationSelected: (int index) {
             setState(() {
@@ -84,22 +72,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.grid_view_outlined, color: Colors.white38, size: 20),
-              selectedIcon: Icon(Icons.grid_view_rounded, color: Colors.white),
+              selectedIcon: Icon(Icons.grid_view_rounded, color: Color(0xFFFF5722)),
               label: 'Hub',
             ),
             NavigationDestination(
               icon: Icon(Icons.explore_outlined, color: Colors.white38, size: 20),
-              selectedIcon: Icon(Icons.explore, color: Colors.white),
+              selectedIcon: Icon(Icons.explore, color: Color(0xFFFF5722)),
               label: 'Explore',
             ),
             NavigationDestination(
               icon: Icon(Icons.near_me_outlined, color: Colors.white38, size: 20),
-              selectedIcon: Icon(Icons.near_me, color: Colors.white),
+              selectedIcon: Icon(Icons.near_me, color: Color(0xFFFF5722)),
               label: 'Track',
             ),
             NavigationDestination(
               icon: Icon(Icons.person_outline_rounded, color: Colors.white38, size: 20),
-              selectedIcon: Icon(Icons.person_rounded, color: Colors.white),
+              selectedIcon: Icon(Icons.person_rounded, color: Color(0xFFFF5722)),
               label: 'Profile',
             ),
           ],
